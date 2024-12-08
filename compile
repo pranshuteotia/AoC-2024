@@ -1,0 +1,15 @@
+#! /usr/bin/env bash
+
+if [ $# -ne 1 ]; then
+    echo "ERROR! Wrong number of arguments passed"
+    echo "Usage: ./compile <day_number>"
+    exit 1
+fi
+
+day_number=$1
+file_title="day${day_number}"
+filename="${file_title}.cpp"
+
+g++ $filename -o $file_title -std=c++11 -Wall -Wextra -Werror
+./$file_title
+
